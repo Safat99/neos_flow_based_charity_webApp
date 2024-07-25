@@ -1,0 +1,17 @@
+Projekt "Charity"
+Das Projekt umfasst eine Webseite, auf der man nach der Eingabe eines Spendencodes eine Organisation auswählen kann, an die gespendet werden soll.
+
+Layout: https://xd.adobe.com/view/8203e2bd-6064-412e-80da-c167004c107b-d750/
+Über Klick auf "</>" können Schriftgrößen, Farben etc. ausgelesen und Bilder heruntergeladen werden.
+
+Anforderungen:
+- Die Organisationen und deren Eigenschaften (Bild, Beschreibung, Link) sollen in der Settings.yaml konfigurierbar sein.
+- Die gültigen Spendencodes sollen durch einen CLI-Command aus einer CSV-Datei (Aufbau siehe codes.csv) ins System importiert werden können.
+- Jeder Spendencode soll nur einmal verwendet werden können.
+- Eine Auswertung zum Spendenstand soll durch einen CLI-Command generiert werden können. Form und Inhalt der Auswertung sind eigenständig zu definieren.
+- Die Links im Footer (Impressum & Datenschutz) sollen auf eigene Seiten zeigen. Diese benötigen keinen Inhalt, das Wort "Impressum" bzw. "Datenschutz" reicht aus, deswegen sind diese nicht im Layout vorhanden.
+
+Folgende Software-Versionen sollen verwendet werden:
+- PHP: 8.2
+- Neos.Flow: 8.3
+- Bootstrap: 5.3
