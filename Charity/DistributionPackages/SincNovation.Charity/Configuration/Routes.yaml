@@ -1,0 +1,11 @@
+Neos:
+  Flow:
+    mvc:
+      routing:
+        routeEnhancers:
+          DonationRoute:
+            type: 'StaticRoutes'
+            routePath: 'donation'
+            controller: 'Donation'
+            action: 'index'
+            package: 'SincNovation.Charity'

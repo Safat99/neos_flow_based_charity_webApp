@@ -20,7 +20,9 @@
     },
     "require": {
         "neos/flow": "~8.3.0",
-        "neos/welcome": "~8.3.0"
+        "neos/welcome": "~8.3.0",
+        "sincnovation/charity": "@dev",
+        "doctrine/dbal": "^2.13.5"
     },
     "require-dev": {
         "neos/kickstarter": "~8.3.0",

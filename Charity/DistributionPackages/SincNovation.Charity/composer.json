@@ -1,0 +1,18 @@
+{
+    "description": "",
+    "type": "neos-package",
+    "name": "sincnovation/charity",
+    "require": {
+        "neos/flow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SincNovation\\Charity\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "SincNovation.Charity"
+        }
+    }
+}

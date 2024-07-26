@@ -31,6 +31,9 @@ https://discuss.neos.io/t/neos-install-problems-debian-12-php-8-2/6449/6
 the following dependecines needed to be installed >> 
 sudo apt install php8.2 php8.2-{common,mbstring,mysql,xml,imagick,curl,intl,igbinary}
 
+>> to speed up needed to install >> 
+`sudo apt-get install php8.2-curl`
+
 ## After installation
 1. setting up Neos Flow:
 
@@ -48,3 +51,6 @@ sudo apt install php8.2 php8.2-{common,mbstring,mysql,xml,imagick,curl,intl,igbi
 The latter instruction will be found on the browswer like how to create a package or something else.
 
 '
+
+created kickstart package by running >
+`./flow  kickstart:package SincNovation.Charity`
