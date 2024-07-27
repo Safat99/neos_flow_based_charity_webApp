@@ -1,23 +1,13 @@
-Neos:
-  Flow:
-    object:
-      class:
-        Neos\Flow\Command\HelpCommandController:
-          inject:
-            packageManager: Neos\Flow\Package\PackageManagerInterface
-    persistence:
-      classes:
-        SincNovation\Charity\Domain\Model\Donation:
-          mapping:
-            tableName: donation_table
-
-    mvc:
-      routing:
-        # Global routes or additional settings can be added here if needed
-        routeEnhancers:
-          GlobalRoute:
-            type: 'StaticRoute'
-            routePath: 'global-route'
-            controller: 'GlobalController'
-            action: 'index'
-            package: 'SincNovation.Charity'
+SincNovation:
+  Charity:
+    organizations:
+      - id: 1
+        name: "DKMS"
+        imageUrl: "path/to/image1.jpg"
+        description: "Unterstützung von Knochenmarkspenden Supporting bone marrow donation"
+        link: "https://www.dkms.de/"
+      - id: 2
+        name: "Organization Two"
+        imageUrl: "path/to/image2.jpg"
+        description: "Description for Organization Two"
+        link: "http://example.com/two"

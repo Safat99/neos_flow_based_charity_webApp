@@ -1,11 +1,42 @@
-Neos:
-  Flow:
-    mvc:
-      routing:
-        routeEnhancers:
-          DonationRoute:
-            type: 'StaticRoutes'
-            routePath: 'donation'
-            controller: 'Donation'
-            action: 'index'
-            package: 'SincNovation.Charity'
+-
+  name: 'Donation'
+  uriPattern: 'donations/{@action}'
+  defaults:
+    '@package': 'SincNovation.Charity'
+    '@controller': 'Donation'
+    '@action': 'index'
+  routeParts:
+    '@action':
+      type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
+      defaultValue: 'index'
+
+-
+  name: 'Organization'
+  uriPattern: 'organizations/{@action}'
+  defaults:
+    '@package': 'SincNovation.Charity'
+    '@controller': 'Organization'
+    '@action': 'list'
+    '@format': 'json'
+  routeParts:
+    '@action':
+      type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
+      defaultValue: 'list'
+    '@format':
+      type: 'Neos\Flow\Mvc\Routing\DynamicFormatRoutePart'
+      defaultValue: 'json'e
+
+-
+  name: 'Standard'
+  uriPattern: '{@controller}/{@action}'
+  defaults:
+    '@package': 'SincNovation.Charity'
+    '@controller': 'Standard'
+    '@action': 'index'
+  routeParts:
+    '@controller':
+      type: 'Neos\Flow\Mvc\Routing\DynamicControllerRoutePart'
+      defaultValue: 'Standard'
+    '@action':
+      type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
+      defaultValue: 'index'

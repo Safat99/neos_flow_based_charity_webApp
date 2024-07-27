@@ -54,3 +54,11 @@ The latter instruction will be found on the browswer like how to create a packag
 
 created kickstart package by running >
 `./flow  kickstart:package SincNovation.Charity`
+
+
+
+important commands >> 
+- ./flow doctrine:update >> executed a database schema update
+- ./flow doctrine:migrate
+- ./flow flow:cache:flush
+- ./flow organization:importfromsettings
