@@ -10,6 +10,21 @@
       type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
       defaultValue: 'index'
 
+-
+  name: 'Donation Code'
+  uriPattern: 'donation-code/{@action}/{code}'
+  defaults:
+    '@package': 'SincNovation.Charity'
+    '@controller': 'DonationCode'
+    '@action': 'validate'
+  routeParts:
+    '@action':
+      type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
+      defaultValue: 'validate'
+    'code':
+      type: 'Text'
+      defaultValue: ''
+
 
 -
   name: 'Organization details'

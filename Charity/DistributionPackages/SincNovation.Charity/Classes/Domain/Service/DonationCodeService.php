@@ -17,26 +17,20 @@ class DonationCodeService
     protected $donationCodeRepository;
 
     /**
-     * Imports donation codes from a CSV file.
-     *
-     * @param string $csvFilePath
-     * @return void
-     */
-    public function importDonationCodes(string $csvFilePath)
-    {
-        // Implement CSV file reading and donation code importing logic here
-    }
-
-    /**
      * Validates if a donation code is valid and available for use.
      *
      * @param string $code
-     * @return bool
+     * @return array
      */
-    public function validateCode(string $code): bool
+    public function validateCode(string $code): array
     {
-        $donationCode = $this->donationCodeRepository->findByCode($code);
-        return $donationCode !== null && !$donationCode->getIsUsed();
+        $donationCode = $this->donationCodeRepository->findOneByCode($code);
+        
+        if ($donationCode === null) {
+            return ['exists' => false, 'isUsed' => false];
+        }
+
+        return ['exists' => true, 'isUsed' => $donationCode->getIsUsed()];
     }
 
     /**

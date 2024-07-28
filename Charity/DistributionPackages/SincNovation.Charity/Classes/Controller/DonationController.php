@@ -3,6 +3,7 @@ namespace SincNovation\Charity\Controller;
 
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\Controller\ActionController;
+use \Neos\Flow\Mvc\View\JsonView;
 
 class DonationController extends ActionController
 {
@@ -11,6 +12,7 @@ class DonationController extends ActionController
      * @var \SincNovation\Charity\Domain\Repository\DonationRepository
      */
     protected $donationRepository;
+    protected $defaultViewObjectName = JsonView::class;
 
     public function indexAction()
     {
