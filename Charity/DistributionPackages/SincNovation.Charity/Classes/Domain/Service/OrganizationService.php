@@ -3,6 +3,8 @@ namespace SincNovation\Charity\Domain\Service;
 
 use Neos\Flow\Configuration\ConfigurationManager;
 use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Mvc\Exception\NoSuchControllerException;
+
 use SincNovation\Charity\Domain\Model\Organization;
 use SincNovation\Charity\Domain\Repository\OrganizationRepository;
 
@@ -62,13 +64,28 @@ class OrganizationService
     }
 
     /**
-     * Gets an organization by its identifier.
+     * Retrieves an organization by its name.
      *
-     * @param int $organizationId
+     * @param string $organizationName
      * @return Organization|null
+     * @throws NoSuchControllerException
      */
+    public function getOrganizationByName(string $organizationName): ?Organization
+    {
+        $organization = $this->organizationRepository->findOneByName($organizationName);
+        if ($organization === null) {
+            throw new NoSuchControllerException("No organization found with name: $organizationName", 404);
+        }
+        return $organization;
+    }
+
     public function getOrganizationById(int $organizationId): ?Organization
     {
-        return $this->organizationRepository->findByIdentifier($organizationId);
+        $organization = $this->organizationRepository->findByIdentifier($organizationId);
+        if ($organization === null) {
+            throw new NoSuchControllerException("No organization found with ID: $organizationId", 404);
+        }
+        return $organization;
     }
+
 }

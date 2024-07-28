@@ -10,33 +10,42 @@
       type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
       defaultValue: 'index'
 
+
 -
-  name: 'Organization'
+  name: 'Organization details'
+  uriPattern: 'organization/view/{identifier}'
+  defaults:
+    '@package': 'SincNovation.Charity'
+    '@controller': 'Organization'
+    '@action': 'view'
+  routeParts:
+    'identifier':
+      type: 'Neos\Flow\Mvc\Routing\DynamicRoutePart'
+
+
+-
+  name: 'Organizations'
   uriPattern: 'organizations/{@action}'
   defaults:
     '@package': 'SincNovation.Charity'
     '@controller': 'Organization'
-    '@action': 'list'
-    '@format': 'json'
+    '@action': 'list'  # default action
   routeParts:
     '@action':
       type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
       defaultValue: 'list'
-    '@format':
-      type: 'Neos\Flow\Mvc\Routing\DynamicFormatRoutePart'
-      defaultValue: 'json'e
 
--
-  name: 'Standard'
-  uriPattern: '{@controller}/{@action}'
-  defaults:
-    '@package': 'SincNovation.Charity'
-    '@controller': 'Standard'
-    '@action': 'index'
-  routeParts:
-    '@controller':
-      type: 'Neos\Flow\Mvc\Routing\DynamicControllerRoutePart'
-      defaultValue: 'Standard'
-    '@action':
-      type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
-      defaultValue: 'index'
+# -
+#   name: 'Standard'
+#   uriPattern: '{@controller}/{@action}'
+#   defaults:
+#     '@package': 'SincNovation.Charity'
+#     '@controller': 'Standard'
+#     '@action': 'index'
+#   routeParts:
+#     '@controller':
+#       type: 'Neos\Flow\Mvc\Routing\DynamicControllerRoutePart'
+#       defaultValue: 'Standard'
+#     '@action':
+#       type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
+#       defaultValue: 'index'

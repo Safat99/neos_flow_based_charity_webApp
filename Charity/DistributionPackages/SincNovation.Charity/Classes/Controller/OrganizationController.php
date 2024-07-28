@@ -4,6 +4,7 @@ namespace SincNovation\Charity\Controller;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\Controller\ActionController;
 use \Neos\Flow\Mvc\View\JsonView;
+use Neos\Flow\Mvc\Exception\NoSuchControllerException;
 
 use SincNovation\Charity\Domain\Service\OrganizationService;
 
@@ -27,8 +28,7 @@ class OrganizationController extends ActionController
      *
      * @return void
      */
-    public function listFromSettingsAction()
-    {
+    public function listFromSettingsAction() {
         $organizations = $this->organizationService->getOrganizationsFromSettings();
         $this->view->assign('value', ['organizations'=> $organizations]);
     }
@@ -38,13 +38,30 @@ class OrganizationController extends ActionController
      *
      * @return void
      */
-    public function listAction()
-    {
+    public function listAction() {
         $organizations = $this->organizationService->getAllOrganizations();
         $this->view->assign('value', ['organizations'=> $organizations]);
     }
 
-    public function indexAction() {
-        $this->view->assign('value', ['message' => 'Hello organizations']);
+    public function viewAction(string $identifier) {
+        try {
+            if (ctype_digit($identifier)) {
+                $organization = $this->organizationService->getOrganizationById((int)$identifier);
+            } else {
+                $organization = $this->organizationService->getOrganizationByName($identifier);
+            }
+    
+            if ($organization === null) {
+                $errorMessage = ctype_digit($identifier) 
+                    ? "No organization found with ID: {$identifier}" 
+                    : "No organization found with name: {$identifier}";
+                throw new NoSuchControllerException($errorMessage, 404);
+            }
+    
+            $this->view->assign('value', $organization);
+    
+        } catch (\Exception $e) {
+            $this->view->assign('value', ['error' => $e->getMessage()]);
+        }
     }
 }
