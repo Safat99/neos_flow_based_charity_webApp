@@ -46,4 +46,12 @@ class DonationCodeRepository extends Repository
             $this->update($donationCode);
         }
     }
+
+    public function countUnusedCodes(): int
+    {
+        $query = $this->createQuery();
+        return $query->matching(
+            $query->equals('isUsed', false)
+        )->count();
+    }
 }

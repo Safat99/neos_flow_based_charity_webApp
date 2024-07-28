@@ -3,6 +3,8 @@ namespace SincNovation\Charity\Domain\Repository;
 
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Persistence\Repository;
+use Doctrine\ORM\EntityManagerInterface;
+
 use SincNovation\Charity\Domain\Model\Donation;
 
 /**
@@ -10,6 +12,13 @@ use SincNovation\Charity\Domain\Model\Donation;
  */
 class DonationRepository extends Repository
 {
+
+    /**
+     * @Flow\Inject
+     * @var EntityManagerInterface
+     */
+    protected $entityManager;
+
     /**
      * Finds donations by a specific organization ID.
      *
@@ -61,5 +70,32 @@ class DonationRepository extends Repository
     {
         $query = $this->createQuery();
         return $query->execute();
+    }
+
+    public function findAllDonations()
+    {
+        return $this->findAll();
+    }
+
+    public function countDonationsByOrganization(): array
+    {
+        $connection = $this->entityManager->getConnection();
+        $sql = '
+            SELECT o.name as organization, COUNT(cd.id) as donation_count
+            FROM organizations o
+            JOIN charity_donation cd ON o.id = cd.organization_id
+            GROUP BY o.id
+        ';
+        $stmt = $connection->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAllAssociative();
+
+        // Map the result to a more readable format
+        $donationsByOrganization = [];
+        foreach ($result as $row) {
+            $donationsByOrganization[$row['organization']] = $row['donation_count'];
+        }
+
+        return $donationsByOrganization;
     }
 }

@@ -63,3 +63,4 @@ important commands >>
 - ./flow flow:cache:flush
 - ./flow organization:importfromsettings
 - ./flow donationcode:import /path/to/your/donationcodes.csv
+- ./flow donationevaluation:evaluate

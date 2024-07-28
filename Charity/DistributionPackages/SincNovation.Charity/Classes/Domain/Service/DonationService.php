@@ -2,9 +2,14 @@
 namespace SincNovation\Charity\Domain\Service;
 
 use Neos\Flow\Annotations as Flow;
-use SincNovation\Charity\Domain\Model\Donation;
-use SincNovation\Charity\Domain\Repository\DonationRepository;
 
+use SincNovation\Charity\Domain\Model\Donation;
+use SincNovation\Charity\Domain\Model\Organization;
+use SincNovation\Charity\Domain\Model\DonationCode;
+use SincNovation\Charity\Domain\Repository\DonationRepository;
+use SincNovation\Charity\Domain\Repository\OrganizationRepository;
+use SincNovation\Charity\Domain\Repository\DonationCodeRepository;
+use SincNovation\Charity\Domain\Exception\DonationException;
 /**
  * @Flow\Scope("singleton")
  */
@@ -17,21 +22,57 @@ class DonationService
     protected $donationRepository;
 
     /**
-     * Creates a new donation.
+     * @Flow\Inject
+     * @var OrganizationRepository
+     */
+    protected $organizationRepository;
+
+    /**
+     * @Flow\Inject
+     * @var DonationCodeRepository
+     */
+    protected $donationCodeRepository;
+
+    /**
+     * Create a new donation
      *
      * @param int $organizationId
      * @param \DateTimeInterface $date
      * @param string $donationCode
-     * @return Donation
+     * @return array
+     * @throws DonationException if the organization or donation code is not found
      */
-    public function createDonation(int $organizationId, \DateTimeInterface $date, string $donationCode): Donation
+    public function createDonation(int $organizationId, \DateTimeInterface $date, string $donationCode): array
     {
+        $organization = $this->organizationRepository->findByIdentifier($organizationId);
+        if ($organization === null) {
+            throw new DonationException("Organization not found");
+        }
+
+        $donationCodeEntity = $this->donationCodeRepository->findOneByCode($donationCode);
+        if ($donationCodeEntity === null || $donationCodeEntity->getIsUsed()) {
+            throw new DonationException("Invalid or already used donation code");
+        }
+
         $donation = new Donation();
-        $donation->setOrganization($organizationId);
+        $donation->setOrganization($organization);
         $donation->setDate($date);
-        $donation->setDonationCode($donationCode);
+        $donation->setDonationCode($donationCodeEntity);
         $this->donationRepository->add($donation);
-        return $donation;
+
+        // Mark the donation code as used
+        $donationCodeEntity->setIsUsed(true);
+        $this->donationCodeRepository->update($donationCodeEntity);
+
+        return [
+            'id' => $donation->getId(),
+            'organization' => [
+                'id' => $organization->getId(),
+                'name' => $organization->getName(),
+            ],
+            'date' => $donation->getDate()->format(\DateTime::ATOM),
+            'donationCode' => $donationCodeEntity->getCode(),
+        ];
     }
 
     /**

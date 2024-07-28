@@ -4,11 +4,11 @@
   defaults:
     '@package': 'SincNovation.Charity'
     '@controller': 'Donation'
-    '@action': 'index'
+    '@action': 'list'  # Default action
   routeParts:
     '@action':
       type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
-      defaultValue: 'index'
+      defaultValue: 'list'
 
 -
   name: 'Donation Code'

@@ -37,7 +37,7 @@ class DonationCodeService
      * Marks a donation code as used.
      *
      * @param string $code
-     * @return void
+     * @return bool
      */
     public function markCodeAsUsed(string $code)
     {
@@ -45,6 +45,9 @@ class DonationCodeService
         if ($donationCode) {
             $donationCode->setIsUsed(true);
             $this->donationCodeRepository->update($donationCode);
+            return true;
+        } else {
+            return false;
         }
     }
 }
