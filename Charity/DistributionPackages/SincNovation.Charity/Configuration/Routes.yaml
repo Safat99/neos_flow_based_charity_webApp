@@ -34,18 +34,3 @@
     '@action':
       type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
       defaultValue: 'list'
-
-# -
-#   name: 'Standard'
-#   uriPattern: '{@controller}/{@action}'
-#   defaults:
-#     '@package': 'SincNovation.Charity'
-#     '@controller': 'Standard'
-#     '@action': 'index'
-#   routeParts:
-#     '@controller':
-#       type: 'Neos\Flow\Mvc\Routing\DynamicControllerRoutePart'
-#       defaultValue: 'Standard'
-#     '@action':
-#       type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
-#       defaultValue: 'index'
