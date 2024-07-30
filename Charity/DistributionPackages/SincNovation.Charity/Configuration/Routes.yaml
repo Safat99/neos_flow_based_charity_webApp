@@ -12,7 +12,7 @@
 
 -
   name: 'Donation Code'
-  uriPattern: 'donation-code/{@action}/{code}'
+  uriPattern: 'donation-code/{@action}'
   defaults:
     '@package': 'SincNovation.Charity'
     '@controller': 'DonationCode'
@@ -49,3 +49,13 @@
     '@action':
       type: 'Neos\Flow\Mvc\Routing\DynamicActionRoutePart'
       defaultValue: 'list'
+
+- name: 'Custom-Page'
+  uriPattern: 'custom'
+  defaults:
+    '@package': 'SincNovation.Charity'
+    '@controller': 'Frontend'
+    '@action': 'custom'
+  routeValues:
+    '@action': 'custom'
+  _reverse: 'simple'

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{f:uri.resource(path: 'Public/Css/Styles.css')}" rel="stylesheet" />    
+    <title>SINC NOVATION Charity</title>
+    <!-- <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #000;
+    }
+    .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        margin-top: 50px;
+    }
+    .title {
+        font-size: 24px;
+        margin: 20px 0;
+    }
+    .description {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+    }
+    .form-section {
+        text-align: left;
+        border: 1px solid #e0e0e0;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .form-section h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .form-section input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    .button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background-color: #f8d8a4;
+        color: #fff;
+        text-align: center;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: not-allowed;
+    }
+    footer {
+        background-color: #000;
+        color: #fff;
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    footer a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+</style> -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="your-image-source.png" alt="SINC NOVATION Logo">
+            <h1 class="title">CHARITY</h1>
+        </header>
+        <div class="description">
+            <p>WIR SPENDEN – SIE ENTSCHEIDEN AN WEN</p>
+            <p>Machen Sie mit und entscheiden Sie selbst, an welche ausgewählte Organisation gespendet wird.</p>
+            <p>WE DONATE – YOU DECIDE TO WHOM</p>
+            <p>Join us and decide to which of the selected organisations you would like to donate.</p>
+        </div>
+        <div class="form-section">
+            <form id="donationCodeForm">
+                <div class="form-section">
+                    <h2>1 CODE</h2>
+                    <p>Bitte geben Sie hier Ihren 8-Stelligen Code Ihrer CHARITYCARD ein.</p>
+                    <p>Please enter your 8-digit code of your CHARITYCARD here.</p>
+                    <input type="text" name="charityCode" placeholder="Code" required>
+                    <button class="button" type="submit" disabled>weiter/next</button>
+                    <div class="message" id="message"></div>
+                </div>
+            </form>
+        
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const form = document.getElementById('donationCodeForm');
+                    const input = form.querySelector('input[name="charityCode"]');
+                    const button = form.querySelector('button[type="submit"]');
+                    const messageDiv = document.getElementById('message');
+        
+                    input.addEventListener('input', () => {
+                        button.disabled = !input.value.trim();
+                    });
+        
+                    form.addEventListener('submit', async (event) => {
+                        event.preventDefault();
+        
+                        const charityCode = input.value.trim();
+                        const url = `/donation-code/validate/${encodeURIComponent(charityCode)}`;
+        
+                        try {
+                            const response = await fetch(url, {
+                                method: 'GET',
+                                headers: {
+                                    'Accept': 'application/json',
+                                },
+                            });
+        
+                            const data = await response.json();
+        
+                            if (response.ok) {
+                                messageDiv.textContent = data.message; // Show success message
+                                messageDiv.style.color = '#00ff00'; // Success message color
+                                // You can redirect or handle the success case here
+                            } else {
+                                messageDiv.textContent = data.message; // Show error message
+                                messageDiv.style.color = '#ff0000'; // Error message color
+                            }
+                        } catch (error) {
+                            messageDiv.textContent = 'An error occurred. Please try again.'; // Error handling
+                            messageDiv.style.color = '#ff0000'; // Error message color
+                        }
+                    });
+                });
+            </script>
+<!--             
+            <h2>1 CODE</h2>
+            <p>Bitte geben Sie hier Ihren 8-Stelligen Code Ihrer CHARITYCARD ein.</p>
+            <p>Please enter your 8-digit code of your CHARITYCARD here.</p>
+            <input type="text" placeholder="Code">
+            <button class="button" disabled>weiter/next</button> -->
+        </div>
+    </div>
+    <footer>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <p>&copy; Copyright 2024 - SINC NOVATION GmbH. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

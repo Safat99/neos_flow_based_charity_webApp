@@ -1,0 +1,223 @@
+/* Header styles */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    width: 109px;
+    height: 51px;
+}
+
+.site-title {
+    font: bold 30px Ubuntu;
+    color: #000;
+    margin: 0;
+}
+
+/* Intro text styles */
+.intro-text {
+    margin-top: 20px;
+}
+
+.intro-title {
+    font: bold 20px Ubuntu;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.intro-description {
+    font: normal 16px Open Sans;
+    color: #000;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #000;
+    height: 90px;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ****************************** validation css ************************ */
+
+/*  ****************form header************** */
+.form-card-header {
+    display: flex;
+    align-items: center;
+}
+
+.circle {
+    top: 364px;
+    left: 410px;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.code-text {
+    font: bold 16px Open Sans;
+    color: #000000;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.circle-2 {
+    top: 364px;
+    left: 533px;
+    width: 24px;
+    height: 24px;
+    border: 2px solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    color: #CCCCCC;
+    opacity: 1;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.organization-text {
+    font: bold 16px Open Sans;
+    color: #CCCCCC;
+    margin-left: 10px;
+}
+
+/* Card and form styling */
+.code-card {
+    top: 340px;
+    left: 358px;
+    width: 484px;
+    /* height: 305px; */
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    opacity: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.instruction {
+    margin: 0;
+    padding: 10px 0;
+    color: #000000;
+    font: normal normal normal 16px Open Sans;
+}
+
+::placeholder {
+    color: F6A000; /* Initial placeholder color */
+}
+
+.code-input {
+    width: 159px;
+    height: 65px;
+    border: 1px solid #F6A000;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 20px;
+    color: #F6A000;
+    margin-bottom: 20px;
+    opacity: 1;
+}
+.code-input.error {
+    border-color: FF0000;
+}
+
+.code-input.error::placeholder {
+    color: FF0000; 
+}
+
+.validation-error {
+    top: 618px;
+    left: 414px;
+    width: 287px;
+    height: 35px;
+    color: #FF0000;
+    font: normal normal normal 12px/15px Montserrat;
+    opacity: 1;
+    margin-top: 10px;
+}
+
+.text-danger {
+    color: #FF0000;
+}
+
+.btn-next {
+    top: 695px;
+    left: 713px;
+    width: 129px;
+    height: 48px;
+    margin-top: 20px;
+    
+    background: #F6A000 no-repeat padding-box;
+    border-radius: 24px;
+    opacity: 1;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    border: none;
+    font: normal normal normal 16px/22px Open Sans;
+    letter-spacing: 0px;
+    cursor: pointer;
+}
+
+/* ************************* organization cards ************************* */
+
+/* General Card Styles */
+.card {
+    width: 382px;
+    height: 180px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    opacity: 1;
+    margin: 20px 0;
+    position: relative; /* To use top/left for positioning if needed */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in the width/height */
+}
+
+/* Selected Card Styles */
+.card.selected {
+    border: 3px solid #F6A000;
+}
+
+/* Card Image */
+.card-img-top {
+    width: 131px;
+    height: 40px;
+    background: transparent url('img/logo.png') no-repeat center center;
+    background-size: contain; /* Adjust image to fit */
+    float: left;
+}
+
+/* Card Link */
+.card-link {
+    color: #F6A000;
+    font: normal normal normal 14px/19px Open Sans;
+    text-decoration: none;
+    float: right;
+    margin-top: 10px; /* Align with image */
+}
+
+/* Card Text */
+.card-text {
+    clear: both; /* Clear floats */
+    font: normal normal normal 14px/19px Open Sans;
+    color: #3C3C3B;
+    margin-top: 10px;
+    white-space: pre-wrap; /* Preserve line breaks for multi-language text */
+}
+
+/* Margin for English translation */
+.card-text.english-translation::before {
+    content: "\A"; /* Line break before English translation */
+    white-space: pre;
+}

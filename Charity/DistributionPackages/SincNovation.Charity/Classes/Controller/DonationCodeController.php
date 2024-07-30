@@ -39,7 +39,7 @@ class DonationCodeController extends ActionController
         } elseif ($validationResult['isUsed']) {
             $this->view->assign('value', [
                 'status' => 'error',
-                'message' => 'Code has already been used'
+                'message' => 'Der eingegebene Code wurde bereits eingelöst. The entered code has already been redeemed.'
             ]);
         } else {
             $this->view->assign('value', [
