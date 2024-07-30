@@ -22,11 +22,13 @@ class DonationCodeController extends ActionController
     /**
      * Validate a donation code
      *
-     * @param string $code
+     * 
      * @return void
      */
-    public function validateAction(string $code)
+    public function validateAction()
     {
+        $code = $this->request->getArgument('code');
+
         $validationResult = $this->donationCodeService->validateCode($code);
 
         if (!$validationResult['exists']) {
