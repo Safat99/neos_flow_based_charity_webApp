@@ -30,3 +30,28 @@ function handleOrganizationList(data) {
 document.addEventListener('DOMContentLoaded', () => {
     fetchOrganizations().then(handleOrganizationList);
 });
+
+// Function to create a donation
+async function createDonation() {
+    const selectedCard = document.querySelector('.card.selected');
+    if (!selectedCard) {
+        alert('Please select an organization.');
+        return;
+    }
+
+    const organizationId = parseInt(selectedCard.dataset.orgId, 10);
+    const donationCode = localStorage.getItem('donationCode');
+
+    try {
+        const result = await createDonationAPI(organizationId, donationCode);
+        if (result.success === true) {
+            alert('Donation successful!');
+            // Optionally redirect to a success page or update the UI
+        } else {
+            alert('Failed to create donation: ' + result.message);
+        }
+    } catch (error) {
+        console.error('Error creating donation:', error);
+        alert('An error occurred while processing your donation.');
+    }
+}

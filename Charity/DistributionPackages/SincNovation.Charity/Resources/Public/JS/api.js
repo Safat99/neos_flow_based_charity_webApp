@@ -29,7 +29,7 @@ async function fetchOrganizations() {
 }
 
 // API call to create a donation
-async function createDonation(organizationId, donationCode) {
+async function createDonationAPI(organizationId, donationCode) {
     const response = await fetch(`/donations/createDonation`, {
         method: 'POST',
         headers: {

@@ -43,7 +43,8 @@ class DonationCodeController extends ActionController
         } else {
             $this->view->assign('value', [
                 'status' => 'success',
-                'message' => 'Code is valid'
+                'message' => 'Code is valid',
+                'code' => $code
             ]);
         }
     }

@@ -16,8 +16,11 @@ async function validateCode() {
 function processDonationCodeValidationResult(result) {
     if (result.status === 'success') {
         showMessage('');
+        
         // Fetch and handle the list of organizations
         // fetchOrganizations().then(handleOrganizationsList);
+        
+        localStorage.setItem('donationCode', result.code);
         window.location.href = 'org';
     } else {
         showMessage(result.message, true)
