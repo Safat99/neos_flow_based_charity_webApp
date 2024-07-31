@@ -8,8 +8,13 @@ function handleOrganizationList(data) {
         const card = document.createElement('div');
         card.className = 'card';
         card.dataset.orgId = org.id; // Store the organization ID in a data attribute
+        
+        // Construct the correct image URL path
+        const imageUrl = `/_Resources/Static/Packages/SincNovation.Charity/images/${org.imageUrl}`;
+
+        
         card.innerHTML = `
-            <img src="${org.imageUrl}" class="card-img-top" alt="${org.name}">
+            <img src="${imageUrl}" class="card-img-top" alt="${org.name}">
             <a href="${org.link}" class="card-link" target="_blank">${org.link}</a>
             <p class="card-text">${org.description}</p>                
         `;
