@@ -215,10 +215,15 @@
     color: #FF0000;
 }
 
+.btn-position-class {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
 .btn-next {
-    position: relative;
-    top: 20px;
-    left: 960px;
+    margin-top: 20px;
+    margin-left: 350px;
     width: 171px;
     height: 48px;
     margin-bottom: 50px;
