@@ -152,7 +152,8 @@
 .gray-text {
     font: bold 16px Open Sans;
     color: #CCCCCC;
-    /* margin-left: 10px; */
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 /* Card and form styling */
@@ -215,13 +216,12 @@
 }
 
 .btn-next {
-    top: 695px;
-    left: 713px;
+    position: relative;
+    top: 20px;
+    left: 1006px;
     width: 129px;
     height: 48px;
-    margin-top: 15px;
-    align-items: right;
-    
+    margin-bottom: 50px;
     background: #F6A000 no-repeat padding-box;
     border-radius: 24px;
     opacity: 1;
@@ -286,9 +286,23 @@
     white-space: pre;
 }
 
-.validate-page, .validate-card-section, .container, .organization-container {
+.validate-page, .validate-card-section, .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.organization-list {
+    /* top: 340px; */
+    left: 358px;
+    width: 484px;
+    /* height: 305px; */
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    opacity: 1;
+    padding: 20px;
+    background-color: #fff;
+    align-items: center;
+    margin: auto;
 }
