@@ -1,24 +1,74 @@
+/* Apply these styles to the body or a main container element */
+.body, .main-container {
+    /* Layout Properties */
+    margin: 0;
+    padding: 0;
+    width: 1200px; /* This sets a fixed width for the content */
+    height: 869px; /* This sets a fixed height for the content */
+    /* UI Properties */
+    background-color: #FFFFFF; /* Background color */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* Adjust if you have a background image */
+    opacity: 1;
+    /* Centering the container if needed */
+    margin-left: auto;
+    margin-right: auto;
+    /* Additional styling for content alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.html, .body {
+    height: 100%;
+}
+
 /* Header styles */
-header {
+.header {
     background-color: #fff;
     padding: 20px 0;
     border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+
+.header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    padding: 20px 0;
 }
 
 .logo {
+    top: 16px;
+    left: 471px;
     width: 109px;
     height: 51px;
+    margin-right: 10px; /* Space between logo and title */
 }
 
 .site-title {
-    font: bold 30px Ubuntu;
-    color: #000;
+    top: 24px;
+    left: 597px;
+    width: 132px;
+    height: 34px;
+
+    font: normal normal bold 30px/35px Ubuntu;
+    color: #000000;
     margin: 0;
 }
 
+
 /* Intro text styles */
 .intro-text {
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    width: 483px;
+    text-align: center;
+    margin: auto;
 }
 
 .intro-title {
@@ -30,12 +80,20 @@ header {
 .intro-description {
     font: normal 16px Open Sans;
     color: #000;
+    width: 483px;
+    height: 44px;
+    text-align: left;
 }
 
 /* Footer styles */
 .footer {
-    background-color: #000;
+    /* top: 1458px; */
+    left: 0px;
+    width: 1200px;
     height: 90px;
+    margin-top: 20px;
+    
+    background-color: #000;
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -49,10 +107,14 @@ header {
 /*  ****************form header************** */
 .form-card-header {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-items: center;
+    margin: auto;
+    gap: 4px;
 }
 
-.circle {
+.black-circle {
     top: 364px;
     left: 410px;
     width: 24px;
@@ -65,14 +127,14 @@ header {
     font-weight: bold;
 }
 
-.code-text {
+.black-text {
     font: bold 16px Open Sans;
     color: #000000;
     margin-left: 10px;
     margin-right: 20px;
 }
 
-.circle-2 {
+.gray-circle {
     top: 364px;
     left: 533px;
     width: 24px;
@@ -87,10 +149,10 @@ header {
     font-weight: bold;
 }
 
-.organization-text {
+.gray-text {
     font: bold 16px Open Sans;
     color: #CCCCCC;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 /* Card and form styling */
@@ -98,7 +160,7 @@ header {
     top: 340px;
     left: 358px;
     width: 484px;
-    /* height: 305px; */
+    height: 305px;
     border: 1px solid #CCCCCC;
     border-radius: 4px;
     opacity: 1;
@@ -114,10 +176,11 @@ header {
 }
 
 ::placeholder {
-    color: F6A000; /* Initial placeholder color */
+    color: #F6A000; /* Initial placeholder color */
 }
 
 .code-input {
+    position: relative;
     width: 159px;
     height: 65px;
     border: 1px solid #F6A000;
@@ -129,11 +192,11 @@ header {
     opacity: 1;
 }
 .code-input.error {
-    border-color: FF0000;
+    border-color: #FF0000;
 }
 
 .code-input.error::placeholder {
-    color: FF0000; 
+    color: #FF0000; 
 }
 
 .validation-error {
@@ -156,7 +219,8 @@ header {
     left: 713px;
     width: 129px;
     height: 48px;
-    margin-top: 20px;
+    margin-top: 15px;
+    align-items: right;
     
     background: #F6A000 no-repeat padding-box;
     border-radius: 24px;
@@ -193,7 +257,7 @@ header {
 .card-img-top {
     width: 131px;
     height: 40px;
-    background: transparent url('img/logo.png') no-repeat center center;
+    background: transparent no-repeat center center;
     background-size: contain; /* Adjust image to fit */
     float: left;
 }
@@ -220,4 +284,11 @@ header {
 .card-text.english-translation::before {
     content: "\A"; /* Line break before English translation */
     white-space: pre;
+}
+
+.validate-page, .validate-card-section, .container, .organization-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

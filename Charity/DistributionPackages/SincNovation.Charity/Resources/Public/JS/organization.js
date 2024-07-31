@@ -10,11 +10,8 @@ function handleOrganizationList(data) {
         card.dataset.orgId = org.id; // Store the organization ID in a data attribute
         card.innerHTML = `
             <img src="${org.imageUrl}" class="card-img-top" alt="${org.name}">
-            <div class="card-body">
-                <h5 class="card-title">${org.name}</h5>
-                <p class="card-text">${org.description}</p>
-                <a href="${org.link}" class="card-link" target="_blank">${org.name}</a>
-            </div>
+            <a href="${org.link}" class="card-link" target="_blank">${org.link}</a>
+            <p class="card-text">${org.description}</p>                
         `;
         // Add event listener to highlight and select the card
         card.addEventListener('click', () => {
@@ -29,5 +26,7 @@ function handleOrganizationList(data) {
     });
 }
 
-// Fetch organizations and display them
-fetchOrganizations().then(handleOrganizationList);
+// Fetch organizations and display them when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    fetchOrganizations().then(handleOrganizationList);
+});

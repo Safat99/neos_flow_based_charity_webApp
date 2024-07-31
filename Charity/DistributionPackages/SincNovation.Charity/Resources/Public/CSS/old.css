@@ -1,12 +1,36 @@
 
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+/* Apply these styles to the body or a main container element */
+body, .main-container {
+    /* Layout Properties */
     margin: 0;
     padding: 0;
-    background-color: #fff;
-    color: #000;
+    width: 1200px; /* This sets a fixed width for the content */
+    height: 869px; /* This sets a fixed height for the content */
+    /* UI Properties */
+    background-color: #FFFFFF; /* Background color */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* Adjust if you have a background image */
+    opacity: 1;
+    /* Centering the container if needed */
+    margin-left: auto;
+    margin-right: auto;
+    /* Additional styling for content alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+/* Optional: Reset styles to ensure consistent appearance across browsers */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
 .container {
     width: 100%;
     max-width: 600px;

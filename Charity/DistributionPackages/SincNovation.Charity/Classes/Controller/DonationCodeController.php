@@ -22,7 +22,6 @@ class DonationCodeController extends ActionController
     /**
      * Validate a donation code
      *
-     * 
      * @return void
      */
     public function validateAction()

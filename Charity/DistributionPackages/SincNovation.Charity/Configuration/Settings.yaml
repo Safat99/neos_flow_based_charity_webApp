@@ -3,11 +3,21 @@ SincNovation:
     organizations:
       - id: 1
         name: "DKMS"
-        imageUrl: "path/to/image1.jpg"
+        imageUrl: "Public/images/logo@2x.png"
         description: "Unterstützung von Knochenmarkspenden Supporting bone marrow donation"
         link: "https://www.dkms.de/"
       - id: 2
-        name: "Organization Two"
-        imageUrl: "path/to/image2.jpg"
-        description: "Description for Organization Two"
+        name: "SOS"
+        imageUrl: "Public/images/1658-logo-sos-kinderd-rfer-weltweit-hermann-gmeiner-fonds@2x.png"
+        description: "Kindern ein Zuhause, Zugang zu Bildung, medizinischer Versorgung ermöglichen. Provide children with a home, access to education and medical care."
+        link: "www.nabu.de"
+      - id: 3
+        name: "NABU"
+        imageUrl: "Public/images/1280px-Nabu-logo.svg@2x.png"
+        description: "die Vielfalt unserer Tier- und Pflanzenwelt (vorrangig in Deutschland) bewahren. Preserve the diversity of our fauna and flora (primarily in Germany)."
+        link: "www.vivaconagua.org"
+      - id: 4
+        name: "VIVA CON AGUA"
+        imageUrl: "Public/images/th-1@2x.png"
+        description: "Zugang zu sauberem Trinkwasser, sanitären Anlagen, Hygieneeinrichtungen. Access to clean drinking water, sanitation and hygiene facilities."
         link: "http://example.com/two"

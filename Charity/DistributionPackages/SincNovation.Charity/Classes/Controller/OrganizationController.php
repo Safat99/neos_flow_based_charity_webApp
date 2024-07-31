@@ -43,6 +43,7 @@ class OrganizationController extends ActionController
         $this->view->assign('value', ['organizations'=> $organizations]);
     }
 
+    // details of a organization: viewOrganizationByName or viewOrganizationById
     public function viewAction(string $identifier) {
         try {
             if (ctype_digit($identifier)) {

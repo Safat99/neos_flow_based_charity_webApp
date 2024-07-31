@@ -59,3 +59,18 @@
   routeValues:
     '@action': 'custom'
   _reverse: 'simple'
+
+- name: 'start-page'
+  uriPattern: 'start'
+  defaults:
+    '@package': 'SincNovation.Charity'
+    '@controller': 'Start'
+    '@action': 'validate'
+  
+- name: 'orgnizations-list-page'
+  uriPattern: 'org'
+  defaults:
+    '@package': 'SincNovation.Charity'
+    '@controller': 'Org'
+    '@action': 'list'
+

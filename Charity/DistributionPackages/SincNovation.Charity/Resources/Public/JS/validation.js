@@ -17,7 +17,8 @@ function processDonationCodeValidationResult(result) {
     if (result.status === 'success') {
         showMessage('');
         // Fetch and handle the list of organizations
-        fetchOrganizations().then(handleOrganizationsList);
+        // fetchOrganizations().then(handleOrganizationsList);
+        window.location.href = 'org';
     } else {
         showMessage(result.message, true)
     }
@@ -38,3 +39,10 @@ function showMessage(message, isError = false) {
         codeInput.classList.remove('error');
     }
 }
+
+// function showMessage(htmlMessage, isError = false) {
+//     const messageContainer = document.getElementById('message');
+//     messageContainer.innerHTML = htmlMessage;  // Set the HTML content
+//     messageContainer.style.display = htmlMessage ? 'block' : 'none';
+//     messageContainer.style.color = isError ? 'red' : 'green';
+// }

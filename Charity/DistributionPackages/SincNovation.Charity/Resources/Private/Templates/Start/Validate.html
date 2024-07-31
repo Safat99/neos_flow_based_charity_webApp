@@ -1,0 +1,35 @@
+<f:layout name="Default" />
+
+<f:section name="content">
+    <div class="validate-page">
+        <section class="validate-card-section">
+            <div class="container">
+                <div class="code-card">
+                    <!-- <f:render partial="FormHeader" /> -->
+                    <div class="form-card-header">
+                        <div class="black-circle">1</div>
+                        <span class="black-text">CODE</span>
+                        <div class="gray-circle">2</div>
+                        <span class="gray-text">ORGANISATION</span>
+                    </div>
+
+                    <hr>
+                    <p class="instruction">Bitte geben Sie hier Ihren 8-Stelligen Code Ihrer <b>CHARITY</b>CARD ein.</p>
+                    <p class="instruction">Please enter your 8-digit code of your <b>CHARITY</b> here.</p>
+                    
+                    <input type="text" class="code-input" id="donationCode" placeholder="IW123456">
+                    <div id="message" class="validation-error" style="display: none;"></div>
+                </div>
+
+                <button class="btn btn-next" onclick="validateCode()">weiter/next</button>
+            </div>
+        </section>                
+        <!-- Error message section -->
+
+    </div>
+</f:section>
+
+<f:section name="scripts">
+    <script src="Public/JS/api.js"></script>
+    <script src="Public/JS/validation.js"></script>
+</f:section>
