@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .results {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .organization {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Evaluation Results</h1>
+        <div class="results">
+            <p>Total Donations: <span id="totalDonations"></span></p>
+            <p>Unused Donation Codes: <span id="unusedCodes"></span></p>
+            <div id="donationCount"></div>
+        </div>
+    </div>
+
+
+    <script>
+        // Function to fetch and display evaluation data
+        async function evaluationOrganizations() {
+            try {
+                const response = await fetch('/evaluation', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                document.getElementById('totalDonations').innerText = data["Total Donations:"];
+                document.getElementById('unusedCodes').innerText = data["Unused Donation Codes:"];
+
+                const donationCountDiv = document.getElementById('donationCount');
+                const donationCount = data["Donation Count By Organizaiton"];
+                for (const org in donationCount) {
+                    const p = document.createElement('p');
+                    p.className = 'organization';
+                    p.innerText = `${org}: ${donationCount[org]} donations`;
+                    donationCountDiv.appendChild(p);
+                }
+            } catch (error) {
+                console.error('Error fetching evaluation data:', error);
+            }
+        }
+
+        // Call the function on page load
+        document.addEventListener('DOMContentLoaded', evaluationOrganizations);
+    </script>
+</body>
+</html>

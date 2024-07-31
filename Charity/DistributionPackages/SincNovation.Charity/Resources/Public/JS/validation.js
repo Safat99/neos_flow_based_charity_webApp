@@ -21,7 +21,7 @@ function processDonationCodeValidationResult(result) {
         // fetchOrganizations().then(handleOrganizationsList);
         
         localStorage.setItem('donationCode', result.code);
-        window.location.href = 'org';
+        window.location.href = 'org/list';
     } else {
         showMessage(result.message, true)
     }

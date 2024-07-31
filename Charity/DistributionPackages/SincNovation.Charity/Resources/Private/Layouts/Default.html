@@ -14,34 +14,42 @@
         </div>
     </header>
 
-    <f:if condition="{request.controllerName} != 'ThankYou'">
-        <f:then>
-            <section class="intro-text">
-                <div>
-                    <h2 class="intro-title">
-                        WIR SPENDEN – SIE ENTSCHEIDEN AN WEN
-                    </h2>
-                    <p class="intro-description">
-                        Machen Sie mit und entscheiden Sie selbst, an welche ausgewählte Organisation gespendet wird.
-                    </p>
-                    <h2 class="intro-title">
-                        WE DONATE – YOU DECIDE TO WHOM
-                    </h2>
-                    <p class="intro-description">
-                        Join us and decide to which of the selected organisations you would like to donate.
-                    </p>
-                </div>
-            </section>
-        </f:then>
-    </f:if>
+    <!-- <f:if condition="{request.controllerName} == 'Org' && {request.controllerActionName} == 'done'">
+    <f:then>
+        
+    </f:then>
+    <f:else>     -->
+        <section class="intro-text">
+            <div>
+                <h2 class="intro-title">
+                    WIR SPENDEN – SIE ENTSCHEIDEN AN WEN
+                </h2>
+                <p class="intro-description">
+                    Machen Sie mit und entscheiden Sie selbst, an welche ausgewählte Organisation gespendet wird.
+                </p>
+                <h2 class="intro-title">
+                    WE DONATE – YOU DECIDE TO WHOM
+                </h2>
+                <p class="intro-description">
+                    Join us and decide to which of the selected organisations you would like to donate.
+                </p>
+            </div>
+        </section>
+    <!-- </f:else>
+    </f:if> -->
 
     <f:render section="content" />
 
     <footer class="footer">
-        <div class="container">
-            <!-- Footer content can go here -->
+        <div class="footer-links">
+            <a href="imprint">Impressum</a>, 
+            <a href="data-protection.html">Datenschutz</a>
+        </div>
+        <div class="footer-copy">
+            © Copyright 2024 | SINC NOVATION GmbH. Alle Rechte vorbehalten.
         </div>
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <f:render section="scripts" />
 </body>

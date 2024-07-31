@@ -68,9 +68,22 @@
     '@action': 'validate'
   
 - name: 'orgnizations-list-page'
-  uriPattern: 'org'
+  uriPattern: 'org/{@action}'
   defaults:
     '@package': 'SincNovation.Charity'
     '@controller': 'Org'
     '@action': 'list'
 
+- name: 'imprint page'
+  uriPattern: 'imprint'
+  defaults:
+    '@package': 'SincNovation.Charity'
+    '@controller': 'Imprint'
+    '@action': 'imprint'
+  
+- name: 'evaluation data'
+  uriPattern: 'evaluation'
+  defaults:
+    '@package': 'SincNovation.Charity'
+    '@controller': 'Evaluation'
+    '@action': 'evaluation'

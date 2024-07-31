@@ -47,6 +47,7 @@ async function createDonation() {
         if (result.success === true) {
             alert('Donation successful!');
             // Optionally redirect to a success page or update the UI
+            window.location.href = 'done';
         } else {
             alert('Failed to create donation: ' + result.message);
         }

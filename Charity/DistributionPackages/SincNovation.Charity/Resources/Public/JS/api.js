@@ -42,3 +42,14 @@ async function createDonationAPI(organizationId, donationCode) {
     });
     return response.json();
 }
+
+// API call to get the list of organizations
+async function evaluationOrganizations() {
+    const response = await fetch(`/evaluation`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    return response.json();
+}
